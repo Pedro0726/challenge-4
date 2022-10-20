@@ -23,17 +23,20 @@ from random import randint
 
 name = input("What is your name? ")
 print(f"Well {name}, I've thought of a number between 1 and 100 and you have only eight tries to guess it. What number do you think it is?” On each try, the player will say a number and the program can answer for different things.")
-
+count = 0
 num = randint(1,100)
-attempt = int(input("Guess the number: "))
-if num == attempt:
-  print("You got it!")
-elif attempt > 100 or attempt < 1:
-  print("Number is out of range.")
+for i in range(1,9):
   attempt = int(input("Guess the number: "))
-elif attempt > num:
-  print("That is greater than the number")
-  attempt = int(input("Guess the number: "))
-elif attempt < num:
-  print("That is less than the number")
-  attempt = int(input("Guess the number: "))
+  if num == attempt:
+    print("You got it!")
+    break
+  elif attempt > 100 or attempt < 1:
+    print("Number is out of range.")
+  elif attempt > num:
+    print("That is greater than the number")
+  elif attempt < num:
+    print("That is less than the number")
+  count += 1 
+  if count == 8:
+    print("Sorry out of luck")
+
